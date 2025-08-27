@@ -2,16 +2,18 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import '../App.css';
-import Header from "./Header.jsx";
+import NavBar from "./NavBar.jsx";
+import Footer from "./Footer.jsx";
 
 
 function Layout() {
     return (
         <div className="bg-body-tertiary">
-            <Header/>
+            <NavBar/>
             <main>
                 <Outlet />
             </main>
+            <Footer/>
         </div>
     );
 }
