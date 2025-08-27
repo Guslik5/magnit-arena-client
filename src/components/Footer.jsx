@@ -18,7 +18,7 @@ const StyledA = styled.a`
     font-weight: bold;
     transition: filter 0.2s ease;
     &:hover {
-        filter: brightness(0.7); /* Darken the image on hover */
+        filter: brightness(0.7); 
 
     }
 `
@@ -36,10 +36,10 @@ const StyledCol = styled(Col)`
         img {
           width: 45px;
           height: 45px;
-          transition: filter 0.3s ease; /* Add transition for smooth effect */
+          transition: filter 0.3s ease; 
             
             &:hover {
-                filter: brightness(0.7); /* Darken the image on hover */
+                filter: brightness(0.7); 
           }
         }
       }

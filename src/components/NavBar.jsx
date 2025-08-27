@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
 
-// Styled Components
 const StyledNavLink = styled(Nav.Link)`
   margin: 0 2.8vw;
   color: white;
@@ -73,12 +72,10 @@ const FooterContainer = styled.div`
     }
 `;
 
-// Новый контейнер для объединения навбара и футера
 const NavBarWithFooterContainer = styled.div`
   @media (min-width: 992px) {
-    /* Для больших экранов */
     display: flex;
-    flex-direction: column; /* Размещаем элементы в колонку */
+    flex-direction: column; 
   }
 `;
 
@@ -88,7 +85,7 @@ function NavBar() {
     const offcanvasNavbarExpand = 'offcanvasNavbarExpand';
 
     return (
-        <NavBarWithFooterContainer> {/* Оборачиваем все в этот контейнер */}
+        <NavBarWithFooterContainer>
             <Navbar key={'lg'} expand={'lg'} className="px-5 py-3" style={{ backgroundColor: '#006699' }}>
                 <Container fluid>
                     <Navbar.Brand href="#" className="text-white">LOGO</Navbar.Brand>
@@ -117,7 +114,7 @@ function NavBar() {
                 </Container>
             </Navbar>
 
-            <FooterContainer> {/* Размещаем FooterContainer вне Navbar */}
+            <FooterContainer>
                 <div style={{marginRight: "35vw"}}><FontAwesomeIcon icon={faMapMarkerAlt} /> Магнитогорская ул., 51Б</div>
                 <a href="tel:+71234567890" className="text-decoration-none text-white"><FontAwesomeIcon icon={faPhone} /> +7 (123) 456-78-90</a>
                 <div><FontAwesomeIcon icon={faClock} /> Пн-Вс: 6:00-01:00</div>

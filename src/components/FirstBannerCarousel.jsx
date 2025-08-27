@@ -6,8 +6,8 @@ function FirstBannerCarousel() {
         <Carousel>
             <Carousel.Item>
                 <img
-                    className="d-block w-100 m-0 p-0" // Стандартные классы Bootstrap для карусели
-                    src={carouselItem}  // Используйте путь к изображению
+                    className="d-block w-100 m-0 p-0"
+                    src={carouselItem}
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -17,8 +17,8 @@ function FirstBannerCarousel() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100 m-0 p-0" // Стандартные классы Bootstrap для карусели
-                    src={carouselItem}  // Используйте путь к изображению
+                    className="d-block w-100 m-0 p-0"
+                    src={carouselItem}
                     alt="First slide"
                 />
                 <Carousel.Caption>
