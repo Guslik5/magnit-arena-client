@@ -1,32 +1,26 @@
 import Carousel from 'react-bootstrap/Carousel';
 import carouselItem from '../assets/carouselItem.jpg';
 
+
+
 function FirstBannerCarousel() {
+
+    const CarouselItems = [
+        carouselItem,
+        carouselItem,
+    ]
+
     return (
         <Carousel>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100 m-0 p-0"
-                    src={carouselItem}
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100 m-0 p-0"
-                    src={carouselItem}
-                    alt="First slide"
-                />
-                <Carousel.Caption>
-                    <h3>second slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-
+            {CarouselItems.map((item, index) => (
+                <Carousel.Item key={index}>
+                    <img
+                        src={item}
+                        alt="photo"
+                        className="d-block w-100 m-0 p-0"
+                    />
+                </Carousel.Item>
+            ))}
         </Carousel>
     );
 }

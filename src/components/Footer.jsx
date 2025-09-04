@@ -112,8 +112,10 @@ function Footer() {
     }
 
 
+
+
     return (
-        <Container fluid className="p-4 bg-dark-custom text-white">
+        <Container id='contact-section' fluid className="p-4 bg-dark-custom text-white">
             <Row>
                 <Col lg={6}>
                     <iframe
@@ -165,7 +167,7 @@ function Footer() {
                         Цените свое время?<br/> Забронируйте услугу онлайн <br/> всего за несколько кликов! <br/> Это быстро, удобно и доступно 24/7.
                     </Row>
 
-                    <StyledButton>Онлайн бронирование</StyledButton>
+                    <StyledButton onClick={() => handleClick("https://go2sport.ru/clubs/magnit-arena/?i=1")}>Онлайн бронирование</StyledButton>
 
                 </Col>
             </Row>
