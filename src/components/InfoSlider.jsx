@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -112,11 +112,38 @@ function SamplePrevArrow(props) {
 }
 
 const ImageSlider = () => {
+
+    const [slidesToShow, setSlidesToShow] = useState(3); // Инициализируем с 4 (по умолчанию)
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth < 768) {
+                setSlidesToShow(1);
+            } else if (screenWidth < 992) {
+                setSlidesToShow(2);
+            } else {
+                setSlidesToShow(3);
+            }
+        };
+
+        // Вызываем handleResize при монтировании компонента
+        handleResize();
+
+        // Добавляем слушатель события resize
+        window.addEventListener('resize', handleResize);
+
+        // Убираем слушатель события при размонтировании компонента
+        return () => window.removeEventListener('resize', handleResize);
+    }, []); // Пустой массив зависимостей - эффект выполняется только при монтировании и размонтировании
+
+
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 5000,
@@ -137,7 +164,14 @@ const ImageSlider = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1
                 }
-            }
+            },
+            {
+                breakpoint: 2000,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
         ]
     };
 

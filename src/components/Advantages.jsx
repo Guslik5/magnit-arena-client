@@ -39,6 +39,7 @@ const StyledCardImg = styled(CardImg)`
 
 const StyledCardBody = styled(CardBody)`
     font-size: 1.5em;
+    text-align: center;
 `
 
 
@@ -51,7 +52,7 @@ function Advantages() {
         },
         {
             img: timeIcon,
-            title: "Круглосуточный доступ",
+            title: "Круглосуточный доступ к бронированию",
         },
         {
             img: qualityIcon,

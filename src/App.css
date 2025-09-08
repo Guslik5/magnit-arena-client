@@ -1,3 +1,10 @@
 .bg-dark-custom{
     background-color: #1F1F1F;
 }
+
+body {
+    overflow-x: hidden;
+}
+html {
+    overflow-x: hidden;
+}
