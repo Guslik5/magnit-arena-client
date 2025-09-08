@@ -86,8 +86,7 @@ function Footer() {
         }
     ]));
 
-    const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5842183590396!2d30.426929977816638!3d59.939041174915275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469631fbb5ff2fc9%3A0x5bee4986278a2b11!2z0JzQsNCz0L3QuNGC0L7Qs9C-0YDRgdC60LDRjyDRg9C7LiwgNTHQsSwg0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LMsIDE5NTAyNw!5e0!3m2!1sru!2sru!4v1756307590865!5m2!1sru!2sru&style=${encodedStyles}`;
-
+    const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127580.70623316868!2d30.21864936928637!3d60.02421724408047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469631fbf334d39d%3A0x5c19e969f946dd34!2z0KTQuNC30LrRg9C70YzRgtGD0YDQvdC-LdGB0L_QvtGA0YLQuNCy0L3QvtC1INC-0LHRidC10YHRgtCy0L4gItCi0YDRg9C00L7QstGL0LUg0YDQtdC30LXRgNCy0Ysi!5e0!3m2!1sru!2sru!4v1757328948969!5m2!1sru!2sru&style=${encodedStyles}`;
 
     const dataIcons = [
         {
@@ -112,8 +111,6 @@ function Footer() {
     }
 
 
-
-
     return (
         <Container id='contact-section' fluid className="p-4 bg-dark-custom text-white">
             <Row>
@@ -122,14 +119,14 @@ function Footer() {
                         src={mapUrl}
                         width="100%"
                         height="100%"
-                        style={{ border: 0 }}
+                        style={{border: 0}}
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </Col>
                 <Col lg={6} className="d-flex flex-column align-items-center">
-                    <Row className="d-flex flex-column align-items-center border-bottom" >
+                    <Row className="d-flex flex-column align-items-center border-bottom">
                         <StyledDiv>
                             Есть вопросы?
                         </StyledDiv>
@@ -139,7 +136,7 @@ function Footer() {
                         <div className="d-flex flex-column align-items-center> fs-5">
                             <StyledA href="tel:+71234567890"> +7 (123) 456-78-90</StyledA>
                             <StyledA href="mailto:magnit-arena@mail.ru">magnit-arena@mail.ru</StyledA>
-                            <div><FontAwesomeIcon icon={faMapMarkerAlt} /> Магнитогорская ул., 51Б</div>
+                            <div><FontAwesomeIcon icon={faMapMarkerAlt}/> Магнитогорская ул., 51В</div>
                         </div>
                         <StyledCol className="d-flex justify-content-center align-items-center">
                             {dataIcons.map((item, index) => {
@@ -164,17 +161,19 @@ function Footer() {
                         </StyledCol>
                     </Row>
                     <Row className="fs-3  align-items-center p-5">
-                        Цените свое время?<br/> Забронируйте услугу онлайн <br/> всего за несколько кликов! <br/> Это быстро, удобно и доступно 24/7.
+                        Цените свое время?<br/> Забронируйте услугу онлайн <br/> всего за несколько кликов! <br/> Это
+                        быстро, удобно и доступно 24/7.
                     </Row>
 
-                    <StyledButton onClick={() => handleClick("https://go2sport.ru/clubs/magnit-arena/?i=1")}>Онлайн бронирование</StyledButton>
+                    <StyledButton onClick={() => handleClick("https://go2sport.ru/clubs/magnit-arena/?i=1")}>Онлайн
+                        бронирование</StyledButton>
 
                 </Col>
             </Row>
             <Row className="text-center mt-5">
-                    <div>Магнит арена.</div>
-                    <div>Официальный сайт.</div>
-                    <div>© 2025.</div>
+                <div>Магнит арена.</div>
+                <div>Официальный сайт.</div>
+                <div>© 2025.</div>
             </Row>
         </Container>
     );
