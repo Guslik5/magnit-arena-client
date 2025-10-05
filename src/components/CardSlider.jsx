@@ -6,6 +6,7 @@ import { Card } from 'react-bootstrap';
 import Container from "react-bootstrap/Container";
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
 
 const StyledSlider = styled(Slider)`
     .slick-list {
@@ -36,7 +37,8 @@ const StyledCard = styled(Card)`
 
 const CardSlider = ({ data, showDate, title, id }) => {
     const sliderRef = useRef(null);
-    const [slidesToShow, setSlidesToShow] = useState(4); // Инициализируем с 4 (по умолчанию)
+    const [slidesToShow, setSlidesToShow] = useState(4);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -77,16 +79,25 @@ const CardSlider = ({ data, showDate, title, id }) => {
         sliderRef.current.slickPrev();
     };
 
+    const formatDate = (isoDateString) => {
+        const date = new Date(isoDateString);
+        return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+
+    const handleClick = (newsId) => {
+        navigate(`/news/${newsId}`);
+    }
+
     return (
         <Container id={id} className="bg-body-tertiary">
             <h1 className="m-5">{title}</h1>
             <StyledSlider ref={sliderRef} {...settings}>
                 {data.map((item, index) => (
-                    <div key={index}>
+                    <div key={index} onClick={showDate ? () => handleClick(item.id) : undefined}>
                         <StyledCard className="p-4">
-                            <Card.Img variant="top" src={item.image} style={{ width: '100%', objectFit: 'cover' }} />
+                            <Card.Img variant="top" src={item.imgUrl} style={{ width: '100%', objectFit: 'cover' }} />
                             <Card.Body>
-                                {showDate && <Card.Text>{item.date}</Card.Text>}
+                                {showDate && <Card.Text>{formatDate(item.updateAt)}</Card.Text>}
                                 <Card.Title>{item.title}</Card.Title>
                             </Card.Body>
                         </StyledCard>

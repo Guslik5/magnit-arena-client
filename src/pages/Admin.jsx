@@ -25,7 +25,10 @@ const AdminPage = () => {
     useEffect(() => {
         fetch('http://localhost:4200/api/news')
             .then(res => res.json())
-            .then(data => setNewsData(data));
+            .then((data) => {
+                const sortedData = data.sort((a, b) => new Date(b.updateAt) - new Date(a.updateAt));
+                setNewsData(sortedData)
+            });
     }, []);
 
     useEffect(() => {
@@ -68,6 +71,25 @@ const AdminPage = () => {
         fetchAdminData();
     }, [navigate]);
 
+    const handleDelete = async (newsId) => {
+        try {
+            const response = await fetch(`http://localhost:4200/api/news/${newsId}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                console.log(`Новость с ID ${newsId} успешно удалена.`);
+                setNewsData(prevNews => prevNews.filter(news => news.id !== newsId));
+            } else {
+                console.error(`Ошибка при удалении новости с ID ${newsId}:`, response.statusText);
+                alert(`Ошибка при удалении новости с ID ${newsId}`);
+            }
+        } catch (error) {
+            console.error(`Ошибка при удалении новости с ID ${newsId}:`, error);
+            alert(`Ошибка при удалении новости с ID ${newsId}`);
+        }
+    };
+
     if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -75,6 +97,8 @@ const AdminPage = () => {
     if (error) {
         return <p style={{ color: 'red' }}>{error}</p>;
     }
+
+
 
     return (
         <>
@@ -84,10 +108,14 @@ const AdminPage = () => {
                 </div>
             </Container>
             <Container>
-                <div className="fs-2 mt-5 mb-5">Новости</div>
+                <Container className="d-flex justify-content-between align-items-center">
+                    <div className="fs-1 mt-5 mb-5">Новости</div>
+                    <Button variant="success" onClick={() => navigate('/admin/news/create')}>Добавить новость</Button>
+                </Container>
+
                 <Container className="bg-body-tertiary p-5">
                     {newsData.map((news, index) => (
-                        <Row key={index} className="mb-2"> {/* mb-2 добавляет небольшой отступ между строками */}
+                        <Row key={index} id={news.id} className="mb-2 pb-2 border-bottom"> {/* mb-2 добавляет небольшой отступ между строками */}
                             <Col md={5} className="d-flex align-items-center">
                                 {news.title}
                             </Col>
@@ -95,10 +123,10 @@ const AdminPage = () => {
                                 {formatDate(news.updateAt)}
                             </Col>
                             <Col md={3} className="d-flex justify-content-end">
-                                <Button variant="warning" className="mr-2">Редактировать</Button>
+                                <Button variant="warning" className="mr-2"  onClick={() => navigate(`/admin/news/edit/${news.id}`)}>Редактировать</Button>
                             </Col>
                             <Col md={2} className="d-flex justify-content-end">
-                                <Button variant="danger">Удалить</Button>
+                                <Button variant="danger" onClick={() => handleDelete(news.id)}>Удалить</Button>
                             </Col>
                         </Row>
                     ))}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import FirstBannerCarousel from "../components/FirstBannerCarousel.jsx";
 import Advantages from "../components/Advantages.jsx";
 import Line from "../components/Line.jsx";
@@ -7,78 +7,76 @@ import news1 from '../assets/news1.jpg';
 import additionalServices1 from '../assets/additionalServices1.jpg';
 import StatisticsBlock from "../components/StatisticsBlock.jsx";
 import InfoSlider from "../components/InfoSlider.jsx";
+import {useNavigate} from "react-router-dom";
 
 function Home() {
-    const newsData = [
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 1(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 2(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 3(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 4(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 5(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 6(Новые раздевалки)",
-        },
-        {
-            image: news1,
-            date: "2016-06-06",
-            title: "Заголовок новости 7(Новые раздевалки)",
-        },
-    ]
+
+    const [newsData, setNewsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
+    useEffect(() => {
+        const fetchNewsData = async () => {
+            try {
+                const response = await fetch('http://localhost:4200/api/news'); // Замените на ваш URL
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                const sortedNews = data.sort((a, b) => new Date(b.updateAt) - new Date(a.updateAt));
+                setNewsData(sortedNews);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNewsData();
+    }, []);
+
+    if (loading) {
+        return <div>Загрузка...</div>;
+    }
+
+    if (error) {
+        return <div>Ошибка: {error.message}</div>;
+    }
 
     const additionalServicesData = [
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 1",
         },
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 2",
         },
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 3",
         },
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 4",
         },        {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 5",
         },
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 6",
         },        {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 7",
         },
         {
-            image: additionalServices1,
+            imgUrl: additionalServices1,
             title: "Заголовок доп услуг 8",
         },
     ]
+
 
     return (
         <>
@@ -95,11 +93,10 @@ function Home() {
             <StatisticsBlock/>
 
             <CardSlider
-                data={additionalServicesData} // Предполагается, что у вас есть массив данных eventsData
-                showDate={false} // Не отображать дату
-                title="Дополнительные услули"  // Заголовок блока
+                data={additionalServicesData}
+                showDate={false}
+                title="Дополнительные услули"
                 id='services-section'
-
             />
             <InfoSlider/>
         </>

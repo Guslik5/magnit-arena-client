@@ -8,6 +8,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
+import {useNavigate} from "react-router-dom";
 
 const StyledNavLink = styled(Nav.Link)`
   margin: 0 2.8vw;
@@ -83,6 +84,7 @@ const NavBarWithFooterContainer = styled.div`
 `;
 
 function NavBar() {
+    const navigate = useNavigate();
     const offcanvasNavbar = 'offcanvasNavbar';
     const offcanvasNavbarLabel = 'offcanvasNavbarLabel';
     const offcanvasNavbarExpand = 'offcanvasNavbarExpand';
@@ -119,31 +121,36 @@ function NavBar() {
 
     const scrollToSection = (targetId) => (e) => {
         e.preventDefault();
+        navigate("/");
 
-        const scrollToNews = (sectionId) => {
-            const newsSection = document.getElementById(sectionId);
+        // Даем время на загрузку страницы перед скроллом
+        setTimeout(() => {
+            const scrollToNews = (sectionId) => {
+                const newsSection = document.getElementById(sectionId);
 
-            if (newsSection) {
-                const rect = newsSection.getBoundingClientRect();
-                const absoluteTop = rect.top + window.pageYOffset;
-                const scrollTarget = absoluteTop - 100;
+                if (newsSection) {
+                    const rect = newsSection.getBoundingClientRect();
+                    const absoluteTop = rect.top + window.pageYOffset;
+                    const scrollTarget = absoluteTop - 100;
 
-                window.scrollTo({
-                    top: scrollTarget,
-                    behavior: 'smooth',
-                });
+                    window.scrollTo({
+                        top: scrollTarget,
+                        behavior: 'smooth',
+                    });
+                } else {
+                    console.warn("News section not found!");
+                }
+            };
+
+            // Проверяем, находимся ли мы на маленьком экране
+            if (isSmallScreen) {
+                closeOffcanvas();
+                // Небольшая задержка, чтобы дать offcanvas закрыться перед скроллом
+                setTimeout(() => scrollToNews(targetId), 300); // Задержка 300ms
             } else {
-                console.warn("News section not found!");
+                scrollToNews(targetId);
             }
-        };
-
-        if (isSmallScreen) {
-            closeOffcanvas();
-            //  Небольшая задержка, чтобы дать offcanvas закрыться перед скроллом
-            setTimeout(() => scrollToNews(targetId), 300); // Задержка 300ms
-        } else {
-            scrollToNews(targetId);
-        }
+        }, 100); // Задержка 100ms перед скроллом к разделу
     };
 
 

@@ -92,17 +92,17 @@ function Footer() {
         {
             href: "#",
             alt: "Вотс апп",
-            image: whatsAppIcon
+            imgUrl: whatsAppIcon
         },
         {
             href: "#",
             alt: "Телеграм",
-            image: tgIcon
+            imgUrl: tgIcon
         },
         {
             href: "#",
             alt: "Вк",
-            image: vkIcon
+            imgUrl: vkIcon
         }
     ]
 
@@ -150,7 +150,7 @@ function Footer() {
                                             onClick={() => handleClick(item.href)}
                                         >
                                             <img
-                                                src={item.image}
+                                                src={item.imgUrl}
                                                 alt={item.alt}
                                             />
                                         </a>
