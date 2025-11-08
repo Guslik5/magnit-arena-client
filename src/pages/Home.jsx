@@ -95,7 +95,7 @@ function Home() {
             <CardSlider
                 data={additionalServicesData}
                 showDate={false}
-                title="Дополнительные услули"
+                title="Дополнительные услуги"
                 id='services-section'
             />
             <InfoSlider/>
