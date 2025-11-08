@@ -8,6 +8,7 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
 
+// Стили для слайдера (без изменений, но добавим padding для карточек внутри)
 const StyledSlider = styled(Slider)`
     .slick-list {
         overflow: hidden !important;
@@ -15,11 +16,14 @@ const StyledSlider = styled(Slider)`
 
     .slick-track {
         display: flex !important;
-
     }
 
     .slick-slide {
         height: auto !important;
+        // Добавляем padding для создания небольшого отступа между карточками,
+        // а также чтобы дать место для увеличения при наведении.
+        // Это важно, чтобы увеличенная карточка не обрезалась
+        padding: 10px; 
     }
 
     @media (max-width: 768px) {
@@ -29,10 +33,23 @@ const StyledSlider = styled(Slider)`
     }
 `;
 
+// Обновленные стили для карточки
 const StyledCard = styled(Card)`
     border: none;
     background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
     width: 100% !important;
+    height: 100%; // Гарантируем, что карточка займет всю высоту внутри slick-slide
+
+    cursor: pointer; // Изменяем курсор на "указатель"
+
+    // Добавляем плавный переход для transform и box-shadow
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+
+    &:hover {
+        transform: scale(1.05);
+        position: relative; 
+        z-index: 1; 
+    }
 `;
 
 const CardSlider = ({ data, showDate, title, id }) => {
@@ -53,21 +70,17 @@ const CardSlider = ({ data, showDate, title, id }) => {
             }
         };
 
-        // Вызываем handleResize при монтировании компонента
         handleResize();
-
-        // Добавляем слушатель события resize
         window.addEventListener('resize', handleResize);
 
-        // Убираем слушатель события при размонтировании компонента
         return () => window.removeEventListener('resize', handleResize);
-    }, []); // Пустой массив зависимостей - эффект выполняется только при монтировании и размонтировании
+    }, []);
 
     const settings = {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: slidesToShow, // Используем состояние slidesToShow
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
     };
 
@@ -84,8 +97,10 @@ const CardSlider = ({ data, showDate, title, id }) => {
         return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
     };
 
-    const handleClick = (newsId) => {
-        navigate(`/news/${newsId}`);
+    const handleClick = (itemId) => {
+        if (showDate) {
+            navigate(`/news/${itemId}`);
+        }
     }
 
     return (
@@ -93,8 +108,11 @@ const CardSlider = ({ data, showDate, title, id }) => {
             <h1 className="m-5">{title}</h1>
             <StyledSlider ref={sliderRef} {...settings}>
                 {data.map((item, index) => (
-                    <div key={index} onClick={showDate ? () => handleClick(item.id) : undefined}>
-                        <StyledCard className="p-4">
+                    <div key={index}>
+                        <StyledCard
+                            className="p-4"
+                            onClick={() => handleClick(item.id)}
+                        >
                             <Card.Img variant="top" src={item.imgUrl} style={{ width: '100%', objectFit: 'cover' }} />
                             <Card.Body>
                                 {showDate && <Card.Text>{formatDate(item.updateAt)}</Card.Text>}

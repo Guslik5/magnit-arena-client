@@ -179,7 +179,7 @@ const News = () => {
             imgUrl: whatsAppIcon
         },
         {
-            href: "#",
+            href: "https://t.me/+eXIIOvtJ5SQ2Mzhi",
             alt: "Телеграм",
             imgUrl: tgIcon
         },

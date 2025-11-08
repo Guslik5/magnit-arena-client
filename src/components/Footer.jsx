@@ -11,6 +11,7 @@ import "../App.css"
 import whatsAppIcon from '../assets/iconWhatsApp.svg'
 import tgIcon from '../assets/iconTg.svg'
 import vkIcon from '../assets/iconVk.svg'
+import React from "react";
 
 const StyledA = styled.a`
     text-decoration: none;
@@ -95,7 +96,7 @@ function Footer() {
             imgUrl: whatsAppIcon
         },
         {
-            href: "#",
+            href: "https://t.me/+eXIIOvtJ5SQ2Mzhi",
             alt: "Телеграм",
             imgUrl: tgIcon
         },
@@ -134,7 +135,7 @@ function Footer() {
                             Свяжитесь с нами!
                         </StyledDiv>
                         <div className="d-flex flex-column align-items-center> fs-5">
-                            <StyledA href="tel:+71234567890"> +7 (123) 456-78-90</StyledA>
+                            <StyledA href="tel:+79602455605"> +7 (960) 245-56-05</StyledA>
                             <StyledA href="mailto:magnit-arena@mail.ru">magnit-arena@mail.ru</StyledA>
                             <div><FontAwesomeIcon icon={faMapMarkerAlt}/> Магнитогорская ул., 51В</div>
                         </div>

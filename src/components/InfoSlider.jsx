@@ -6,7 +6,15 @@ import styled from 'styled-components';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import infoSliderBg from '../assets/infoSliderBG.jpg';
-import photo1 from '../assets/news1.jpg';
+import photo1 from '../assets/infoSliderItem1.jpg';
+import photo2 from '../assets/infoSliderItem2.jpg';
+import photo3 from '../assets/infoSliderItem3.jpg';
+import photo7 from '../assets/infoSliderItem4.jpg';
+import photo5 from '../assets/infoSliderItem5.jpg';
+import photo6 from '../assets/infoSliderItem6.jpg';
+import photo4 from '../assets/infoSliderItem7.jpg';
+import photo8 from '../assets/infoSliderItem8.jpg';
+
 
 // Styled Components
 const StyledSliderContainer = styled.div`
@@ -177,10 +185,13 @@ const ImageSlider = () => {
 
     const images = [
         photo1,
-        photo1,
-        photo1,
-        photo1,
-        photo1
+        photo2,
+        photo3,
+        photo4,
+        photo5,
+        photo6,
+        photo7,
+        photo8,
     ];
 
     return (

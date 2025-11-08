@@ -192,7 +192,7 @@ function NavBar() {
             </Navbar>
             <FooterContainer>
                 <div style={{ marginRight: "35vw" }}><FontAwesomeIcon icon={faMapMarkerAlt} /> Магнитогорская ул., 51В</div>
-                <a href="tel:+71234567890" className="text-decoration-none text-white"><FontAwesomeIcon icon={faPhone} /> +7 (123) 456-78-90</a>
+                <a href="tel:+79602455605" className="text-decoration-none text-white"><FontAwesomeIcon icon={faPhone} /> +7 (960) 245-56-05</a>
                 <div><FontAwesomeIcon icon={faClock} /> Пн-Вс: 6:00-01:00</div>
             </FooterContainer>
         </NavBarWithFooterContainer>
