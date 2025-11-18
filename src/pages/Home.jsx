@@ -47,33 +47,22 @@ function Home() {
     const additionalServicesData = [
         {
             imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 1",
+            title: "Доп услуги планируются",
         },
         {
             imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 2",
+            title: "Доп услуги планируются",
         },
         {
             imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 3",
+            title: "Доп услуги планируются",
         },
         {
             imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 4",
+            title: "Доп услуги планируются",
         },        {
             imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 5",
-        },
-        {
-            imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 6",
-        },        {
-            imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 7",
-        },
-        {
-            imgUrl: additionalServices1,
-            title: "Заголовок доп услуг 8",
+            title: "Доп услуги планируются",
         },
     ]
 
