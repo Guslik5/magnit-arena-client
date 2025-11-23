@@ -1,5 +1,4 @@
 import Carousel from 'react-bootstrap/Carousel';
-import carouselItem from '../assets/carouselItem.jpg';
 import carouselItem2 from '../assets/carouselItem2.jpg';
 import carouselItem3 from '../assets/carouselItem3.jpg';
 import carouselItem4 from '../assets/carouselItem4.jpg';
@@ -9,7 +8,6 @@ import carouselItem4 from '../assets/carouselItem4.jpg';
 function FirstBannerCarousel() {
 
     const CarouselItems = [
-        carouselItem,
         carouselItem2,
         carouselItem3,
         carouselItem4,
