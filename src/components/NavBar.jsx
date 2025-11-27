@@ -9,6 +9,9 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faClock } from '@fortawesome/free-solid-svg-icons';
 import {useNavigate} from "react-router-dom";
+import doc1 from '../assets/pdf/1.pdf';
+import doc2 from '../assets/pdf/2.pdf';
+import doc3 from '../assets/pdf/3.pdf';
 
 const StyledNavLink = styled(Nav.Link)`
   margin: 0 2.8vw;
@@ -191,9 +194,29 @@ function NavBar() {
                 </Container>
             </Navbar>
             <FooterContainer>
-                <div style={{ marginRight: "35vw" }}><FontAwesomeIcon icon={faMapMarkerAlt} /> Магнитогорская ул., 51В</div>
-                <a href="tel:+79602455605" className="text-decoration-none text-white"><FontAwesomeIcon icon={faPhone} /> +7 (960) 245-56-05</a>
-                <div><FontAwesomeIcon icon={faClock} /> Пн-Вс: 6:00-01:00</div>
+                <div style={{ marginRight: "35vw" }}>
+                    <FontAwesomeIcon icon={faMapMarkerAlt} /> Магнитогорская ул., 51В (Метро Ладожская)
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 6, marginRight: 24 }}>
+                    <a href={doc1} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-white">
+                        Маршрут от Магнитогорской
+                    </a>
+                    <a href={doc2} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-white">
+                        Маршрут от Энергетиков
+                    </a>
+                    <a href={doc3} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-white">
+                        Маршрут пешком от Ладожской
+                    </a>
+                </div>
+
+                <a href="tel:+79602455605" className="text-decoration-none text-white">
+                    <FontAwesomeIcon icon={faPhone} /> +7 (960) 245-56-05
+                </a>
+
+                <div>
+                    <FontAwesomeIcon icon={faClock} /> Пн-Вс: 6:00-00:00
+                </div>
             </FooterContainer>
         </NavBarWithFooterContainer>
     );
