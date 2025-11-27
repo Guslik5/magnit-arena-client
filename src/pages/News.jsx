@@ -193,7 +193,7 @@ const News = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch(`http://localhost:4200/api/news/${id}`);
+                const response = await fetch(`https://magnit-arena.ru/api/news/${id}`);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

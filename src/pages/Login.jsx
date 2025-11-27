@@ -34,7 +34,7 @@ function LoginPage() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:4200/api/auth/login', { // Замени на адрес своего бэкенда
+            const response = await fetch('https://magnit-arena.ru/api/auth/login', { // Замени на адрес своего бэкенда
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

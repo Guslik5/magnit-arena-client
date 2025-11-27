@@ -29,7 +29,7 @@ const CreateNewsPage = () => {
             console.log('Content type:', typeof description, 'Content value:', description);
             console.log('ImageUrl type:', typeof imgUrl, 'ImageUrl value:', imgUrl);
 
-            const response = await fetch('http://localhost:4200/api/news', {
+            const response = await fetch('https://magnit-arena.ru/api/news', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ function Home() {
     useEffect(() => {
         const fetchNewsData = async () => {
             try {
-                const response = await fetch('http://localhost:4200/api/news'); // Замените на ваш URL
+                const response = await fetch('https://magnit-arena.ru/api/news'); // Замените на ваш URL
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

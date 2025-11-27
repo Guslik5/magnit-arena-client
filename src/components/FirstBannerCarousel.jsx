@@ -9,7 +9,6 @@ import carouselItem4 from '../assets/carouselItem4.jpg';
 function FirstBannerCarousel() {
 
     const CarouselItems = [
-        carouselItem,
         carouselItem2,
         carouselItem3,
         carouselItem4,

@@ -23,7 +23,7 @@ const AdminPage = () => {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4200/api/news')
+        fetch('https://magnit-arena.ru/api/news')
             .then(res => res.json())
             .then((data) => {
                 const sortedData = data.sort((a, b) => new Date(b.updateAt) - new Date(a.updateAt));
@@ -42,7 +42,7 @@ const AdminPage = () => {
         const fetchAdminData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch('http://localhost:4200/api/auth/me', { // Замени на адрес своего бэкенда
+                const response = await fetch('https://magnit-arena.ru/api/auth/me', { // Замени на адрес своего бэкенда
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -73,7 +73,7 @@ const AdminPage = () => {
 
     const handleDelete = async (newsId) => {
         try {
-            const response = await fetch(`http://localhost:4200/api/news/${newsId}`, {
+            const response = await fetch(`https://magnit-arena.ru/api/news/${newsId}`, {
                 method: 'DELETE',
             });
 

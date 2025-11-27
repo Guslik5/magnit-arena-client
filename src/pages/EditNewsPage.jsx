@@ -34,7 +34,7 @@ const EditNewsPage = () => {
                 setIsFetchingInitialData(true);
                 const token = localStorage.getItem('access_token');
                 console.log('Запрос новости, id=', id, 'token=', !!token);
-                const response = await fetch(`http://localhost:4200/api/news/${id}`, {
+                const response = await fetch(`https://magnit-arena.ru/api/news/${id}`, {
                     headers: {
                         ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
                     },
@@ -94,7 +94,7 @@ const EditNewsPage = () => {
         }
         try {
             const token = localStorage.getItem('access_token');
-            const response = await fetch(`http://localhost:4200/api/news/${id}`, { // Используем ID в URL и PUT метод
+            const response = await fetch(`https://magnit-arena.ru/api/news/${id}`, { // Используем ID в URL и PUT метод
                 method: 'PUT', // Изменено с POST на PUT
                 headers: {
                     'Content-Type': 'application/json',
