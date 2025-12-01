@@ -73,9 +73,9 @@ function Home() {
             <Advantages />
             <Line/>
             <CardSlider
-                data={newsData}  // Предполагается, что у вас есть массив данных newsData
-                showDate={true} // Отображать дату
-                title="Новости"   // Заголовок блока
+                data={newsData} 
+                showDate={true}
+                title="Новости" 
                 id='news-section'
             />
 

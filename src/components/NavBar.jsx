@@ -168,7 +168,7 @@ function NavBar() {
                 tabIndex="-1"
             >
                 <Container fluid>
-                    <Navbar.Brand href="#" className="text-white">LOGO</Navbar.Brand>
+                    <Navbar.Brand href="/" className="text-white">Magnit Arena</Navbar.Brand>
                     <Navbar.Toggle aria-controls={offcanvasNavbar} ref={toggleButtonRef} />
                     <Navbar.Offcanvas
                         id={offcanvasNavbarExpand}
