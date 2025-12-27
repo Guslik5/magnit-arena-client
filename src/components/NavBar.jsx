@@ -12,6 +12,7 @@ import {useNavigate} from "react-router-dom";
 import doc1 from '../assets/pdf/1.pdf';
 import doc2 from '../assets/pdf/2.pdf';
 import doc3 from '../assets/pdf/3.pdf';
+import logo from '../assets/logo.png'
 
 const StyledNavLink = styled(Nav.Link)`
   margin: 0 2.8vw;
@@ -168,7 +169,9 @@ function NavBar() {
                 tabIndex="-1"
             >
                 <Container fluid>
-                    <Navbar.Brand href="/" className="text-white">Magnit Arena</Navbar.Brand>
+                    <Navbar.Brand href="/" className="text-white">
+                        <img src={logo} alt="логотип магнит-арена" width='150px'/>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls={offcanvasNavbar} ref={toggleButtonRef} />
                     <Navbar.Offcanvas
                         id={offcanvasNavbarExpand}
