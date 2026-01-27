@@ -213,8 +213,8 @@ function NavBar() {
                     </a>
                 </div>
 
-                <a href="tel:+79602455605" className="text-decoration-none text-white">
-                    <FontAwesomeIcon icon={faPhone} /> +7 (960) 245-56-05
+                <a href="tel:+79214195555" className="text-decoration-none text-white">
+                    <FontAwesomeIcon icon={faPhone} /> +7 (921) 419-55-55
                 </a>
 
                 <div>

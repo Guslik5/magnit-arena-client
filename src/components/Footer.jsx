@@ -135,7 +135,7 @@ function Footer() {
                             Свяжитесь с нами!
                         </StyledDiv>
                         <div className="d-flex flex-column align-items-center> fs-5">
-                            <StyledA href="tel:+79602455605"> +7 (960) 245-56-05</StyledA>
+                            <StyledA href="tel:+79214195555"> +7 (921) 419-55-55</StyledA>
                             <StyledA href="mailto:magnit-arena@mail.ru">magnit-arena@mail.ru</StyledA>
                             <div><FontAwesomeIcon icon={faMapMarkerAlt}/> Магнитогорская ул., 51В</div>
                         </div>
